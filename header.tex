@@ -1,0 +1,164 @@
+% Preamble
+% Karl Becker, Stand: 23.8.16
+% -------------------
+\documentclass[12pt,a4paper,oneside,toc=indentunnumbered]{article}
+% -------------------
+% TOC
+\usepackage[titles]{tocloft}
+% TOC: … zur Seitenzahl
+\renewcommand\cftsecleader{\cftdotfill{1}}
+\renewcommand\cftsubsecleader{\cftdotfill{1}}
+\renewcommand\cftsubsubsecleader{\cftdotfill{1}}
+\renewcommand\cfttableader{\cftdotfill{1}}
+% TOC: Punkt nach 1.
+% \renewcommand{\cftsecaftersnum}{.}%
+% TOC: Schriften
+% Seitenzahlen
+\renewcommand\cftsecpagefont{\small\sffamily}
+\renewcommand\cftsubsecpagefont{\small\sffamily}
+\renewcommand\cftsubsubsecpagefont{\small\sffamily}
+\renewcommand\cfttabpagefont{\small\sffamily}
+\renewcommand\cftfigpagefont{\small\sffamily}
+% Titel
+\renewcommand\cftsecfont{\bfseries\sffamily}
+\renewcommand\cftsubsecfont{\sffamily}
+\renewcommand\cftsubsubsecfont{\itshape\sffamily}
+\renewcommand\cfttabfont{\bfseries\sf}
+% TOC: Abstände
+\setlength{\cftbeforesecskip}{0.2cm}
+\setlength{\cftbeforesubsecskip}{0.2cm}
+\setlength{\cftbeforesubsubsecskip}{0.2cm}
+\setlength{\cftsecnumwidth}{0.5cm}
+\setlength{\cftsubsecnumwidth}{0.75cm}
+\setlength{\cftsubsubsecnumwidth}{1cm}
+% -------------------
+% Change hyphenation rules
+\usepackage[ngerman]{babel}
+\usepackage[babel,german=quotes]{csquotes}
+% -------------------
+% Grafiken einbinden
+\usepackage{graphicx}
+\usepackage{wrapfig}
+% -------------------
+% Sonderzeichen
+\usepackage{textcomp}
+% -------------------
+% Source code formatting and highlighting
+\usepackage{listings} 
+% -------------------
+% Scrivener Kommentar = LaTeX ToDo
+\usepackage[draft, textsize=tiny, textwidth=2cm, bordercolor=white]{todonotes}
+% -------------------
+% Tabelle
+\usepackage{longtable}
+\usepackage{booktabs} % schönere Tabellen
+\usepackage{float} % Float Optionen, redundant?
+% \usepackage[font=sf]{floatrow} % Float Optionen und Schriftartenwechsel für Tabelle
+% -------------------
+% Bildunterschriften formatieren
+\usepackage[font=footnotesize,labelfont=bf,font=sf,labelsep=endash,singlelinecheck=false,format=plain,justification=raggedleft]{caption}
+% -------------------
+% PDF Outline, Infos & Links generieren
+\usepackage[hyperfootnotes=false]{hyperref}
+\hypersetup{
+    pdftitle={Themen, Methoden und Entwicklungen in der Popularmusikforschung. Die Erforschung populärer Musik im Kontext wissenschaftlicher Veröffentlichungen.},
+    pdfauthor={Karl-Ulrich Becker},
+    pdfsubject={},
+    pdfkeywords={Wissenschaftsgeschichte, Popularmusikforschung, Literaturanalyse, Reflexion von Geschichtsschreibung, Kanonisierung, deskriptive Bibliometrie, Geschichtsschreibung},
+    bookmarksnumbered=true,     
+    bookmarksopen=true,         
+    bookmarksopenlevel=1,       
+    hidelinks=true,         
+    pdfstartview=Fit,           
+    pdfpagemode=UseOutlines,
+    pdfpagelayout=TwoPageRight
+}
+% -------------------
+% Seitenränder
+\usepackage{geometry}
+\geometry{a4paper, top=25mm, left=25mm, right=30mm, bottom=15mm, headsep=10mm, footskip=25mm}
+% -------------------
+% Zeilenabstand
+\linespread {1.5}
+\usepackage[onehalfspacing]{setspace}
+% -------------------
+% Listen
+\usepackage{enumitem}
+\setlist{noitemsep}
+% \setlist[1]{\labelindent=\parindent}
+\setlist[itemize]{leftmargin=*}
+\setlist[enumerate]{labelsep=*, leftmargin=1.5pc}
+\setlist[enumerate,1]{label=\arabic*., ref=\arabic*}
+\setlist[enumerate,2]{label=\emph{\alph*}), ref=\theenumi.\emph{\alph*}}
+\setlist[enumerate,3]{label=\roman*), ref=\theenumii.\roman*}
+\setlist[description]{font=\sffamily\bfseries}
+% -------------------
+% Schriftarten
+\usepackage{xltxtra}
+\usepackage{titlesec}
+\setmainfont{FFScala}
+\setsansfont{ScalaSans}
+\setmonofont{TheSansMono-Light}
+\urlstyle{rm} % URLs nicht in Monospace
+% Überschriften Sans-Serif
+\titleformat*{\section}{\Large\bfseries\sffamily}
+\titleformat*{\subsection}{\large\bfseries\sffamily}
+\titleformat*{\subsubsection}{\normalsize\bfseries\sffamily}
+% -------------------
+% Fußnoten einrücken
+\usepackage[marginal,bottom]{footmisc}
+\setlength{\footnotemargin}{-1em}
+% -------------------
+% Text sperren
+\usepackage{soul} % Markierung: \so{gesperrt}
+% -------------------
+% Schusterjungen & Hurenkinder verhindern
+\usepackage[defaultlines=4,all]{nowidow}
+% -------------------
+% Kopfzeile
+\usepackage[automark,nouppercase,plainfootsepline,plainheadsepline]{scrpage2}
+\automark[subsection]{section}
+\renewcommand*{\sectionmarkformat}{}
+% Kopfzeile Schriftarten
+\renewcommand{\headfont}{\sffamily}
+\renewcommand{\pnumfont}{\sffamily}
+% Kopfzeile Inhalt (Inhalt der Klammern entfernen für leer)
+\ihead[\headmark]{\headmark} % Oben innen: Setzt Kapitel 
+\ohead[\pagemark]{\pagemark} % Oben außen: Seitenzahlen
+\setheadsepline{0.05em}
+% Kopfzeile an:
+\pagestyle{scrheadings}
+% -------------------
+% \quote Umgebung kursiv
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\small\singlespacing}
+\AtBeginEnvironment{quote}{\itshape}
+% -------------------
+% BibLaTex
+\usepackage[backend=bibtex,style=bwl-FU]{biblatex}
+% \usepackage[nottoc,notlot,notlof]{tocbibind} % ToC, LoT & LoF nicht in den ToC
+% \usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+% \renewcommand*{\mkibid}{\emph}
+\bibliography{/Users/Karl/OneDrive/Promotion/Bibliography.bib}
+% -------------------
+% Damit Scrivener richtig in Fußnoten zitiert:
+\newcommand{\citep}{\autocite}
+\newcommand{\citet}{\autocite}
+\newcommand{\citealp}{\cite}
+% -------------------
+\begin{document}		
+% -------------------
+% Extras einbinden oder nicht	
+% -------------------
+% \pagenumbering{roman}	
+% Deckblatt einbinden	
+% \input{/Users/Karl/OneDrive/Promotion/TeX/Deckblatt.tex}
+% ToC einbinden
+ \input{/Users/Karl/OneDrive/Promotion/TeX/ToC.tex}
+% Abbildungsverzeichnis einbinden
+% \input{/Users/Karl/OneDrive/Promotion/TeX/LoF.tex}
+% Tabellenverzeichnis einbinden
+% \input{/Users/Karl/OneDrive/Promotion/TeX/LoT.tex}
+% Text mit Arabischen Ziffern nummerieren
+% -------------------
+\pagenumbering{arabic}
