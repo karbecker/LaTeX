@@ -1,9 +1,10 @@
 % Preamble
-% Karl Becker, Stand: 25.8.16
+% Karl Becker, Stand: 28.8.16
 % -------------------
 \documentclass[12pt,a4paper,oneside,toc=indentunnumbered]{article}
 % -------------------
-% TOC
+% Inhaltsverzeichnis
+% -------------------
 \usepackage[titles]{tocloft}
 % TOC: … zur Seitenzahl
 \renewcommand\cftsecleader{\cftdotfill{1}}
@@ -49,7 +50,7 @@
 % Scrivener Kommentar = LaTeX ToDo
 \usepackage[draft, textsize=tiny, textwidth=2cm, bordercolor=white]{todonotes}
 % -------------------
-% Tabelle
+% Tabellen
 \usepackage{longtable}
 \usepackage{booktabs} % schönere Tabellen
 \usepackage{float} % Float Optionen, redundant?
@@ -60,19 +61,8 @@
 % -------------------
 % PDF Outline, Infos & Links generieren
 \usepackage[hyperfootnotes=false]{hyperref}
-\hypersetup{
-    pdftitle={Themen, Methoden und Entwicklungen in der Popularmusikforschung. Die Erforschung populärer Musik im Kontext wissenschaftlicher Veröffentlichungen.},
-    pdfauthor={Karl-Ulrich Becker},
-    pdfsubject={},
-    pdfkeywords={Wissenschaftsgeschichte, Popularmusikforschung, Literaturanalyse, Reflexion von Geschichtsschreibung, Kanonisierung, deskriptive Bibliometrie, Geschichtsschreibung},
-    bookmarksnumbered=true,     
-    bookmarksopen=true,         
-    bookmarksopenlevel=1,       
-    hidelinks=true,         
-    pdfstartview=Fit,           
-    pdfpagemode=UseOutlines,
-    pdfpagelayout=TwoPageRight
-}
+% Datei mit Metadaten laden
+\input{/Users/Karl/OneDrive/Promotion/TeX/hyper.tex}
 % -------------------
 % Seitenränder
 \usepackage{geometry}
@@ -83,6 +73,7 @@
 \usepackage[onehalfspacing]{setspace}
 % -------------------
 % Listen
+% -------------------
 \usepackage{enumitem}
 \setlist{noitemsep}
 % \setlist[1]{\labelindent=\parindent}
@@ -96,10 +87,12 @@
 % Schriftarten
 \usepackage{xltxtra}
 \usepackage{titlesec}
+% Fonts definieren
 \setmainfont{FFScala}
 \setsansfont{ScalaSans}
 \setmonofont{TheSansMono-Light}
-\urlstyle{rm} % URLs nicht in Monospace
+% URLs nicht in Monospace
+\urlstyle{rm}
 % Überschriften Sans-Serif
 \titleformat*{\section}{\Large\bfseries\sffamily}
 \titleformat*{\subsection}{\large\bfseries\sffamily}
@@ -116,6 +109,7 @@
 \usepackage[defaultlines=4,all]{nowidow}
 % -------------------
 % Kopfzeile
+% -------------------
 \usepackage[automark,nouppercase,plainfootsepline,plainheadsepline]{scrpage2}
 \automark[subsection]{section}
 \renewcommand*{\sectionmarkformat}{}
@@ -129,22 +123,28 @@
 % Kopfzeile an:
 \pagestyle{scrheadings}
 % -------------------
-% \quote Umgebung kursiv
+% quote Umgebung kursiv
 \usepackage{etoolbox}
 \AtBeginEnvironment{quote}{\small\singlespacing}
 \AtBeginEnvironment{quote}{\itshape}
 % -------------------
 % BibLaTex
+% -------------------
+% Zitierstil mit (Name, Jahr:Seite)
 \usepackage[backend=bibtex,style=bwl-FU]{biblatex}
-% \usepackage[nottoc,notlot,notlof]{tocbibind} % ToC, LoT & LoF nicht in den ToC
+% Zitierstil klassisch in der Fußnote
 % \usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
+% ibid etc. kursiv
 % \renewcommand*{\mkibid}{\emph}
+% Bibtex Datei einbinden: 
 \bibliography{/Users/Karl/OneDrive/Promotion/Bibliography.bib}
 % -------------------
 % Damit Scrivener richtig in Fußnoten zitiert:
 \newcommand{\citep}{\autocite}
 \newcommand{\citet}{\autocite}
 \newcommand{\citealp}{\cite}
+% Wörter, die einen Bindestrich beinhalten nicht umbrechen
+\exhyphenpenalty=10000
 % -------------------
 \begin{document}		
 % -------------------
@@ -152,11 +152,11 @@
 % -------------------
 % \pagenumbering{roman}	
 % Deckblatt einbinden	
-% \input{/Users/Karl/OneDrive/Promotion/TeX/Deckblatt.tex}
+ \input{/Users/Karl/OneDrive/Promotion/TeX/Deckblatt.tex}
 % ToC einbinden
  \input{/Users/Karl/Github/LaTeX/ToC.tex}
 % Abbildungsverzeichnis einbinden
- \input{/Users/Karl/Github/LaTeX/LoF.tex}
+% \input{/Users/Karl/Github/LaTeX/LoF.tex}
 % Tabellenverzeichnis einbinden
 % \input{/Users/Karl/Github/LaTeX/LoT.tex}
 % Text mit Arabischen Ziffern nummerieren
