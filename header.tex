@@ -3,6 +3,10 @@
 % -------------------
 \documentclass[12pt,a4paper,oneside,toc=indentunnumbered]{article}
 % -------------------
+% Seitenränder
+\usepackage{geometry}
+\geometry{includeheadfoot, left=25mm, right=30mm, top=20mm, bottom=10mm, footnotesep=7.5mm, headsep=7.5mm}
+% -------------------
 % Inhaltsverzeichnis
 % -------------------
 \usepackage[titles]{tocloft}
@@ -64,10 +68,6 @@
 % Datei mit Metadaten laden
 \input{/Users/Karl/OneDrive/Promotion/TeX/hyper.tex}
 % -------------------
-% Seitenränder
-\usepackage{geometry}
-\geometry{a4paper, top=25mm, left=25mm, right=30mm, bottom=20mm, headsep=10mm, footskip=25mm}
-% -------------------
 % Zeilenabstand
 \linespread {1.5}
 \usepackage[onehalfspacing]{setspace}
@@ -101,6 +101,11 @@
 % Fußnoten einrücken
 \usepackage[marginal,bottom]{footmisc}
 \setlength{\footnotemargin}{-1em}
+% Den Abstand zwischen der Fußnotenlinie und der ersten Fußnote vergrößern: Zum anpassen die Zahl -6 und 5.6 gleichmäßig anpassen
+\makeatletter
+\def\footnoterule{\kern-6\p@
+  \hrule \@width 2in \kern 5.6\p@} % the \hrule is .4pt high
+\makeatother
 % -------------------
 % Text sperren
 \usepackage{soul} % Markierung: \so{gesperrt}
@@ -143,8 +148,8 @@
 \newcommand{\citep}{\autocite}
 \newcommand{\citet}{\autocite}
 \newcommand{\citealp}{\cite}
-% Wörter, die einen Bindestrich beinhalten nicht umbrechen
-\exhyphenpenalty=10000
+% Wörter, die einen Bindestrich beinhalten nicht umbrechen -> führt zu Problemen
+%\exhyphenpenalty=10000
 % -------------------
 \begin{document}		
 % -------------------
