@@ -151,6 +151,12 @@
 % Wörter, die einen Bindestrich beinhalten nicht umbrechen -> führt zu Problemen
 %\exhyphenpenalty=10000
 % -------------------
+% Für Definitionslisten nach dem Schema 
+% \begin{labeling}{längsteswort}
+% \item [Wort] Beschreibung
+\usepackage{scrextend}
+\addtokomafont{labelinglabel}{\bf\sffamily}
+% -------------------
 \begin{document}		
 % -------------------
 % Extras einbinden oder nicht	
