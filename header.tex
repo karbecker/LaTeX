@@ -87,6 +87,7 @@
 % Schriftarten
 \usepackage{xltxtra}
 \usepackage{titlesec}
+\titlespacing*{\section}{0pt}{2ex}{3ex}
 % Fonts definieren
 \setmainfont{FFScala}
 \setsansfont{ScalaSans}
@@ -156,6 +157,10 @@
 % \item [Wort] Beschreibung
 \usepackage{scrextend}
 \addtokomafont{labelinglabel}{\bf\sffamily}
+% Section Number im Rand
+\makeatletter
+\def\@seccntformat#1{\llap{\csname the#1\endcsname\quad}}
+\makeatother
 % -------------------
 \begin{document}		
 % -------------------
