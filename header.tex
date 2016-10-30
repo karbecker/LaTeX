@@ -1,11 +1,11 @@
 % Preamble
-% Karl Becker, Stand: 28.8.16
+% Karl Becker, Stand: 28.10.16
 % -------------------
 \documentclass[12pt,a4paper,oneside,toc=indentunnumbered]{article}
 % -------------------
 % Seitenränder
 \usepackage{geometry}
-\geometry{includeheadfoot, left=30mm, right=30mm, top=15mm, bottom=10mm, footnotesep=7.5mm, headsep=7.5mm}
+\geometry{includeheadfoot, left=30mm, right=35mm, top=15mm, bottom=10mm, footnotesep=7.5mm, headsep=7.5mm}
 % -------------------
 % Inhaltsverzeichnis
 % -------------------
@@ -161,6 +161,10 @@
 \makeatletter
 \def\@seccntformat#1{\llap{\csname the#1\endcsname\quad}}
 \makeatother
+% Marginpar (Randnotiz)
+\newcommand\mpar[1]{
+\marginpar {\scriptsize\flushleft\sffamily\footnotesize #1}}
+\setlength{\marginparwidth}{3cm}
 % -------------------
 \begin{document}		
 % -------------------
