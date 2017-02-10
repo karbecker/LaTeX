@@ -146,9 +146,9 @@
 \bibliography{/Users/Karl/OneDrive/Promotion/Bibliography.bib}
 % -------------------
 % Damit Scrivener richtig in Fußnoten zitiert:
-\newcommand{\citep}{\autocite}
+\newcommand{\citep}{\cite}
 \newcommand{\citet}{\autocite}
-\newcommand{\citealp}{\cite}
+% kann weg?! \newcommand{\citealp}{\cite}
 % Wörter, die einen Bindestrich beinhalten nicht umbrechen -> führt zu Problemen
 %\exhyphenpenalty=10000
 % -------------------
@@ -165,6 +165,8 @@
 \newcommand\mpar[1]{
 \marginpar {\scriptsize\flushleft\sffamily\footnotesize #1}}
 \setlength{\marginparwidth}{3cm}
+\usepackage{makeidx}
+\makeindex
 % -------------------
 \begin{document}		
 % -------------------
