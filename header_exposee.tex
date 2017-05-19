@@ -2,10 +2,13 @@
 % Karl Becker, Stand: 14.2.17
 % -------------------
 \documentclass[12pt,a4paper,oneside,toc=indentunnumbered]{article}
+\usepackage[utf8]{inputenc} 
 % -------------------
 % Seitenränder
 \usepackage{geometry}
 \geometry{includeheadfoot, left=25mm, right=25mm, top=12mm, bottom=7mm, footnotesep=7.5mm, headsep=7.5mm}
+% Euro-Symbol (\euro)
+\usepackage[gen]{eurosym}
 % -------------------
 % Inhaltsverzeichnis
 % -------------------
@@ -64,7 +67,7 @@
 \usepackage[font=footnotesize,labelfont=bf,font=sf,labelsep=endash,singlelinecheck=false,format=plain,justification=raggedleft]{caption}
 % -------------------
 % PDF Outline, Infos & Links generieren
-\usepackage[hyperfootnotes=false]{hyperref}
+\usepackage[hyperfootnotes=false,hidelinks]{hyperref}
 % Datei mit Metadaten laden
 \input{/Users/Karl/Dropbox/Promotion/TeX/hyper.tex}
 % -------------------
@@ -112,6 +115,10 @@
 \usepackage{soul} % Markierung: \so{gesperrt}
 % -------------------
 % Schusterjungen & Hurenkinder verhindern
+\usepackage[defaultlines=2,all]{nowidow}
+% -------------------
+% -------------------
+% Schusterjungen & Hurenkinder verhindern
 % \usepackage[defaultlines=2,all]{nowidow}
 % -------------------
 % Kopfzeile
@@ -151,19 +158,12 @@
 \makeatletter
 \def\@seccntformat#1{\llap{\csname the#1\endcsname\quad}}
 \makeatother
-% Marginpar (Randnotiz)
-\newcommand\mpar[1]{
-\marginpar {\scriptsize\flushleft\sffamily\footnotesize #1}}
-\setlength{\marginparwidth}{3cm}
-\usepackage{makeidx}
-\makeindex
 % -------------------
 \begin{document}
 \sloppy	% Damit kein Text in den rechten Rand austritt (dafür ist der Blocksatz nicht perfekt)
 % -------------------
-% Extras einbinden oder nicht	
+% Extras einbinden (oder nicht)
 % -------------------
-% \pagenumbering{roman}	
 % Deckblatt einbinden	
  \input{/Users/Karl/Dropbox/Promotion/TeX/deckblatt_exposee.tex}
 % ToC einbinden

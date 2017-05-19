@@ -1,11 +1,15 @@
 % Preamble Diss
 % Karl Becker, Stand: 13.3.17
 % -------------------
-\documentclass[12pt,a4paper,oneside,toc=indentunnumbered]{article}
+\documentclass[12pt,a4paper,oneside,toc=indentunnumbered,twoside,openright]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{emptypage}
 % -------------------
 % Seitenränder
 \usepackage{geometry}
-\geometry{includeheadfoot, left=30mm, right=35mm, top=15mm, bottom=10mm, footnotesep=7.5mm, headsep=7.5mm}
+\geometry{includeheadfoot,inner=30mm,outer=35mm,top=15mm, bottom=10mm,footnotesep=7.5mm,headsep=7.5mm}
+% Euro-Symbol (\euro)
+\usepackage[gen]{eurosym}
 % -------------------
 % Inhaltsverzeichnis
 % -------------------
@@ -76,7 +80,7 @@
 \usepackage[font=footnotesize,labelfont=bf,font=sf,labelsep=endash,singlelinecheck=false,format=plain,justification=raggedleft]{caption}
 % -------------------
 % PDF Outline, Infos & Links generieren
-\usepackage[hyperfootnotes=false]{hyperref}
+\usepackage[hyperfootnotes=false,hidelinks]{hyperref}
 % Datei mit Metadaten laden
 \input{/Users/Karl/Dropbox/Promotion/TeX/hyper.tex}
 % -------------------
@@ -146,7 +150,7 @@
 \AtBeginEnvironment{quote}{\small\singlespacing}
 \AtBeginEnvironment{quote}{\itshape}
 % -------------------
-% BibLaTex
+% BibTex
 % -------------------
 % Zitierstil klassisch in der Fußnote
 % \usepackage[backend=bibtex,style=verbose-trad2]{biblatex}
@@ -185,8 +189,9 @@
 % Extras einbinden	
 % -------------------
 \pagenumbering{roman}
-%\input{/Users/Karl/Dropbox/Promotion/TeX/deckblatt_diss.tex} % Deckblatt
-%\input{/Users/Karl/Github/LaTeX/ToC.tex} % ToC
-%\input{/Users/Karl/Github/LaTeX/LoF.tex} % Abbildungsverzeichnis
-%\input{/Users/Karl/Github/LaTeX/LoT.tex} % Tabellenverzeichnis
+\input{/Users/Karl/Dropbox/Promotion/TeX/deckblatt_diss.tex} % Deckblatt
+\cleardoublepage
+\input{/Users/Karl/Github/LaTeX/ToC.tex} % ToC
+\input{/Users/Karl/Github/LaTeX/LoF.tex} % Abbildungsverzeichnis
+\input{/Users/Karl/Github/LaTeX/LoT.tex} % Tabellenverzeichnis
 \pagenumbering{arabic}
