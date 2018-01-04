@@ -3,7 +3,15 @@
 % -------------------
 \documentclass[11pt,a5paper,oneside,toc=indentunnumbered,twoside,openright]{article}
 \usepackage{emptypage}
-\usepackage{fontspec}
+% Fonts definieren
+\usepackage{xltxtra}
+\usepackage{titlesec}
+\setmainfont[
+  Ligatures=TeX,
+  SmallCapsFont={Scala Caps},
+  ]{Scala}
+\setsansfont{ScalaSans}
+\setmonofont{Hack}
 % -------------------
 % Anhang
 \usepackage[toc,page]{appendix}
@@ -54,6 +62,8 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 % -------------------
+% \chapquote: {Text}{Autor}
+\newcommand{\chapquote}[2]{\begin{quotation} \itshape#1 \end{quotation} \begin{flushright} – #2 \end{flushright} }
 % BibTex
 % -------------------
 % Zitierstil klassisch in der Fußnote
@@ -62,9 +72,13 @@
 % ibid etc. kursiv
 \renewcommand*{\mkibid}{\emph}
 % Bibtex Datei einbinden: 
-\bibliography{/Users/Karl/Dropbox/Dissertation/Bibliography.bib}
+\bibliography{/Users/Karl/Dropbox/Promotion/All.bib}
 \newcommand{\citep}{\cite}
 \newcommand{\citet}{\autocite}
+% Damit werden um URLs in den Biblatex Fußnoten keine Spaces mehr gebaut (https://tex.stackexchange.com/q/114538/112687)
+\toks0\expandafter{\biburlsetup}
+\edef\biburlsetup{\the\toks0 \Urlmuskip =0mu\relax}
+% fertig
 \usepackage{xpatch}
 % -------------------
 % Sonderzeichen
@@ -88,8 +102,10 @@
 % Tabellen
 \usepackage{longtable}
 \usepackage{booktabs} % schönere Tabellen
-\usepackage{float} % Float Optionen, redundant?
-% \usepackage[font=sf]{floatrow} % Float Optionen und Schriftartenwechsel für Tabelle
+\usepackage[font=sf]{floatrow}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.5}
+%\usepackage{float} % Float Optionen, redundant?
 % -------------------
 % Bildunterschriften formatieren
 \usepackage[font=footnotesize,labelfont=bf,font=sf,labelsep=endash,singlelinecheck=false,format=plain,justification=raggedleft]{caption}
@@ -110,16 +126,8 @@
 \setlist[enumerate,3]{label=\roman*), ref=\theenumii.\roman*}
 \setlist[description]{font=\sffamily\bfseries}
 % -------------------
-% Schriftarten
-% -------------------
-\usepackage{xltxtra}
-\usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
 \titlespacing*{\section}{0pt}{2ex}{3ex}
-% Fonts definieren
-\setmainfont{FFScala}
-\setsansfont{ScalaSans}
-\setmonofont{TheSansMono-Light}
 % URLs nicht in Monospace
 \urlstyle{rm}
 % Überschriften Sans-Serif

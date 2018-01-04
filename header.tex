@@ -1,9 +1,17 @@
 % Preamble Diss
-% Karl Becker, Stand: 18.7.17
+% Karl Becker, Stand: 31.10.17
 % -------------------
 \documentclass[12pt,a4paper,oneside,toc=indentunnumbered,twoside,openright]{article}
 \usepackage{emptypage}
-\usepackage{fontspec}
+% Fonts definieren
+\usepackage{xltxtra}
+\usepackage{titlesec}
+\setmainfont[
+  Ligatures=TeX,
+  SmallCapsFont={Scala Caps},
+  ]{Scala}
+\setsansfont{ScalaSans}
+\setmonofont{Hack}
 % -------------------
 % Anhang
 \usepackage[toc,page]{appendix}
@@ -11,7 +19,7 @@
 \renewcommand{\appendixpagename}{Anhang}
 % Seitenränder
 \usepackage{geometry}
-\usepackage{url} 
+\usepackage[hyphens]{url} 
 \geometry{includeheadfoot,inner=30mm,outer=35mm,top=15mm, bottom=10mm,footnotesep=7.5mm,headsep=7.5mm}
 % Euro-Symbol (\euro)
 \usepackage[gen]{eurosym}
@@ -54,6 +62,8 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 % -------------------
+% \chapquote: {Text}{Autor}
+\newcommand{\chapquote}[2]{\begin{quotation} \itshape#1 \end{quotation} \begin{flushright} – #2 \end{flushright} }
 % BibTex
 % -------------------
 % Zitierstil klassisch in der Fußnote
@@ -62,9 +72,13 @@
 % ibid etc. kursiv
 \renewcommand*{\mkibid}{\emph}
 % Bibtex Datei einbinden: 
-\bibliography{/Users/Karl/Dropbox/Dissertation/Bibliography.bib}
+\bibliography{/Users/Karl/Dropbox/Promotion/All.bib}
 \newcommand{\citep}{\cite}
 \newcommand{\citet}{\autocite}
+% Damit werden um URLs in den Biblatex Fußnoten keine Spaces mehr gebaut (https://tex.stackexchange.com/q/114538/112687)
+\toks0\expandafter{\biburlsetup}
+\edef\biburlsetup{\the\toks0 \Urlmuskip =0mu\relax}
+% fertig
 \usepackage{xpatch}
 % -------------------
 % Sonderzeichen
@@ -73,14 +87,15 @@
 % Source code formatting and highlighting
 \usepackage{listings} 
 \makeatletter
-\lstdefinestyle{mystyle}{
+\lstdefinestyle{inline}{
   basicstyle=%
     \ttfamily
     \lst@ifdisplaystyle\scriptsize\fi
+    \lst@ifdisplaystyle\color{red}\fi
 }
 \makeatother
 \renewcommand{\lstlistingname}{Code}
-\lstset{style=mystyle, breaklines=true, numbers=left, numberstyle={\scriptsize\ttfamily\color{gray!50}}, columns=fullflexible, showstringspaces=false, backgroundcolor=\color{gray!10}}
+\lstset{basicstyle={\footnotesize\ttfamily}, breaklines=true, numbers=left, numberstyle={\scriptsize\ttfamily\color{gray!50}}, columns=fullflexible, showstringspaces=false, backgroundcolor=\color{gray!10}}
 % -------------------
 % Scrivener Kommentar = LaTeX ToDo
 \usepackage[draft, textsize=tiny, textwidth=2cm, bordercolor=white]{todonotes}
@@ -88,8 +103,10 @@
 % Tabellen
 \usepackage{longtable}
 \usepackage{booktabs} % schönere Tabellen
-\usepackage{float} % Float Optionen, redundant?
-% \usepackage[font=sf]{floatrow} % Float Optionen und Schriftartenwechsel für Tabelle
+\usepackage[font=sf]{floatrow}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.5}
+%\usepackage{float} % Float Optionen, redundant?
 % -------------------
 % Bildunterschriften formatieren
 \usepackage[font=footnotesize,labelfont=bf,font=sf,labelsep=endash,singlelinecheck=false,format=plain,justification=raggedleft]{caption}
@@ -110,16 +127,8 @@
 \setlist[enumerate,3]{label=\roman*), ref=\theenumii.\roman*}
 \setlist[description]{font=\sffamily\bfseries}
 % -------------------
-% Schriftarten
-% -------------------
-\usepackage{xltxtra}
-\usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
 \titlespacing*{\section}{0pt}{2ex}{3ex}
-% Fonts definieren
-\setmainfont{FFScala}
-\setsansfont{ScalaSans}
-\setmonofont{TheSansMono}
 % URLs nicht in Monospace
 \urlstyle{rm}
 % Überschriften Sans-Serif
@@ -161,6 +170,7 @@
 \usepackage{etoolbox}
 \AtBeginEnvironment{quote}{\small\singlespacing}
 \AtBeginEnvironment{quote}{\itshape}
+
 % Wörter, die einen Bindestrich beinhalten nicht umbrechen -> führt zu Problemen
 %\exhyphenpenalty=10000
 % -------------------
@@ -186,7 +196,6 @@
 % Datei mit Metadaten laden
 \input{/Users/Karl/Dropbox/Promotion/TeX/hyper.tex}
 % -------------------
-% -------------------
 \begin{document}
 \sloppy % Damit kein Text in den rechten Rand austritt (dafür ist der Blocksatz nicht perfekt)
 \renewcommand{\sectionautorefname}{Kapitel} % Autoref Section zu Kapitel
@@ -195,7 +204,7 @@
 % -------------------
 \pagenumbering{roman}
 %\input{/Users/Karl/Dropbox/Promotion/TeX/deckblatt_diss.tex} % Deckblatt
-%\input{/Users/Karl/Github/LaTeX/ToC.tex} % ToC
+\input{/Users/Karl/Github/LaTeX/ToC.tex} % ToC
 %\input{/Users/Karl/Github/LaTeX/LoF.tex} % Abbildungsverzeichnis
 %\input{/Users/Karl/Github/LaTeX/LoT.tex} % Tabellenverzeichnis
 \pagenumbering{arabic}
