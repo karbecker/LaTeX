@@ -1,5 +1,6 @@
-% Preamble Dissertation
-% Karl Becker, Stand: 2018-07-26
+% Preamble Diss
+% Karl Becker, Stand: 07.07.2018
+% Diese Datei kompilieren, ggf. den Pfad zur inkludierten Tex Datei ändern.
 % -------------------
 \documentclass[12pt,a4paper,oneside,toc=indentunnumbered,twoside,openright]{article}
 \usepackage{emptypage}
@@ -83,8 +84,6 @@
 % -------------------
 % Sonderzeichen
 \usepackage{textcomp}
-
-\usepackage{tabulary}
 % -------------------
 % Source code formatting and highlighting
 \usepackage{listings} 
@@ -152,6 +151,7 @@
 % -------------------
 % Schusterjungen & Hurenkinder verhindern
 \usepackage[defaultlines=4,all]{nowidow}
+\usepackage{tabulary}
 % -------------------
 % Kopfzeile
 % -------------------
@@ -205,8 +205,9 @@
 % Extras einbinden	
 % -------------------
 \pagenumbering{roman}
-%\input{/Users/Karl/Dropbox/Promotion/TeX/deckblatt_diss.tex} % Deckblatt
+\input{/Users/Karl/Dropbox/Promotion/TeX/deckblatt_diss.tex} % Deckblatt
 \input{/Users/Karl/GitHub/LaTeX/ToC.tex} % ToC
 \input{/Users/Karl/GitHub/LaTeX/LoF.tex} % Abbildungsverzeichnis
-%\input{/Users/Karl/GitHub/LaTeX/LoT.tex} % Tabellenverzeichnis
+\input{/Users/Karl/GitHub/LaTeX/LoT.tex} % Tabellenverzeichnis
 \pagenumbering{arabic}
+\input{/Users/Karl/Downloads/teballe.tex/teballe.tex}
